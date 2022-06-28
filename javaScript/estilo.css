@@ -1,0 +1,45 @@
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    color: darkslategrey;
+    
+}
+textarea{
+    resize: none;
+    margin: 8px;
+    align-items: flex-end;
+    text-align: end;
+    width: 6cm;
+}
+button{
+    padding: 8px;
+    margin: 8px;
+    width: 32px;
+}
+input {
+    color:#481876;
+    background-color: #ffa00055;
+    border-radius: 8px;
+    text-align: center;
+    width: 250px;
+    padding-inline-start: 5px;
+  }
+  input:active{
+      color: #ffa000
+  }
+
+  /*  de clases  */
+
+  .active{
+      color: red;
+  }
+  .opacity-50{
+      color: #FF0010AA;
+      background-color: lightgrey;
+  }
+  .numero{
+    background-color: darkgrey;
+  }
+  .comando{
+    background-color: darkslategrey;
+
+  }

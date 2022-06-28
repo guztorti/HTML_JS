@@ -1,0 +1,72 @@
+/* de elementos*/
+p{
+    size: xx-small;
+}
+strong{
+    color: #ff0000f0;
+}
+a{
+    color: red;
+    text-decoration: none;
+}
+a:hover{
+    font-size: larger;
+}
+a:active{
+    font-weight: bold;
+}
+p em{
+    color: deepskyblue;
+}
+table{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+table caption{
+    visibility: hidden;
+}
+table td{
+    border: 1px solid black;
+    color: green;
+}
+table td strong{
+    color: orange;
+}
+table th{
+    border: 1px solid black;
+    color: red;
+}
+table thead th{
+    color: orange;
+}
+table tr{
+    border: 1px solid black;
+}
+div p a{
+    color: darkgreen;
+}
+
+/* de clases */
+.destacado{
+    color: orange;
+}
+.especial{
+    color: purple;
+}
+table .especial{
+    color: orange;
+}
+
+/* de identificadores*/
+#titulo{
+    color: rgb(40, 111, 98);
+}
+#subtitulo{
+    color: blue;
+}
+#adicional{
+    color: olive;
+}
+p #especial{
+    color: fuchsia;
+}

@@ -1,0 +1,33 @@
+body{
+    padding-left: 10px;
+}
+table tr th{
+    border: 1px solid #333;
+    text-align: center;
+    /*color: brown;*/
+    background: url("./imagenes/fondo_gris.gif");
+}
+
+table{
+    width: 10cm;
+    border: 1px solid darkblue;
+    border-collapse: collapse;
+    padding: 3px;
+    margin-top: 1em;
+    column-width: 10cm;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+td{
+    border: 1px solid grey;
+    text-align: justify;
+    text-align: center;
+}
+tr:nth-child(even){
+    background-color: lightyellow;
+    height: 1cm;
+}
+th{
+    text-align: justify;
+    font-weight: bold;
+}
