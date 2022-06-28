@@ -8,11 +8,13 @@ textarea{
     margin: 8px;
     align-items: flex-end;
     text-align: end;
-    width: 6cm;
+    width: 5cm;
+    font-size: 20pt;
 }
 button{
     padding: 8px;
-    margin: 8px;
+    margin-left: 8px;
+    margin-top: 8px;
     width: 32px;
 }
 input {
@@ -42,4 +44,17 @@ input {
   .comando{
     background-color: darkslategrey;
 
+  }
+
+  /* por ID */
+
+  #borde{
+      border-style: inset;
+      width: fit-content;
+      padding-bottom: 8px;
+  }
+
+  #btnIgual{
+      width: 73px;
+      margin-left: 48px;
   }
