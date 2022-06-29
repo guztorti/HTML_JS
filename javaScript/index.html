@@ -27,11 +27,11 @@
 <h1>Ejercicio 5</h1>
 <div id="borde">
     <div>
-        <textarea type="Number" rows="1" maxlength="12" id="pantalla">0</textarea>
+        <textarea type="Number" rows="1" maxlength="12" placeholder="0" id="pantalla">0</textarea>
     </div>
     <div>
         <button id="btn7" class="numero" onclick="apretarNumero(7)">7</button> <button id="btn8" class="numero" onclick="apretarNumero(8)">8</button><button id="btn9"
-            class="numero" onclick="apretarNumero(9)">9</button><button id="btnAtras" class="comando" onclick="atras()">C</button><button id="btnBorrar"
+            class="numero" onclick="apretarNumero(9)">9</button><button id="btnAtras" class="comando" onclick="atras()">←</button><button id="btnBorrar"
             class="comando" onclick="borrar()">CE</button>
     </div>
     <div>
@@ -46,7 +46,7 @@
     </div>
     <div>
         <button id="btn0" class="numero"onclick="apretarNumero(0)">0</button> <button id="btnPunto" class="numero" onclick="apretarNumero(',')">.</button><button id="btnIgual"
-            class="comando" onclick="calcular()">=</button>
+            class="comando" onclick="calcular(operador)">=</button>
     </div>
 </div>
 <script type="text/javascript" src="motor.js"></script>

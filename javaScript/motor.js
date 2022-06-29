@@ -1,10 +1,12 @@
 document.getElementById('tbx3').onmouseover = esMayorDeEdad;
 document.getElementById('txt4').onchange = sOn;
+window.onload = cargar;
+const PANTALLA = document.getElementById('pantalla');
 
 var entra = true;
 function cargar() {
-    let edad = prompt("Ingrese su edad", 18);
-    document.getElementById('tbx3').setAttribute('value', edad);
+    //let edad = prompt("Ingrese su edad", 18);
+    //document.getElementById('tbx3').setAttribute('value', edad);
     calculadora;
 }
 function esMayorDeEdad() {
@@ -44,18 +46,27 @@ function sOn() {
 
 }
 function apretarNumero(numero){
-    if (document.getElementById('pantalla').value == 0){
-    document.getElementById('pantalla').value = numero;
+    if (PANTALLA.value.length === 12){
+        return;
+    }
+    if(calculado){
+        PANTALLA.value = numero;
+        calculado = false;
+    }
+    if (numero === ','){
+        document.getElementById('btnPunto').disabled = true;
+    }
+    if (PANTALLA.value == 0){
+    PANTALLA.value = numero;
     }
     else{
-    document.getElementById('pantalla').value +=numero;
+    PANTALLA.value +=numero;
     }
 }
 
 let operando1 = 0;
-let operando2 = 0;
-let resultado = 0;
 let calculado = false;
+let operador;
 
 function calculadora(){
     const num1 = document.getElementById('btn1');
@@ -69,7 +80,13 @@ function calculadora(){
     const num9 = document.getElementById('btn9');
     const num0 = document.getElementById('btn0');
     const numDot = document.getElementById('btnPunto');
-    const commEq = document.getElementById('btnIgual');    
+    const commEq = document.getElementById('btnIgual');
+    const commback = document.getElementById('btnAtras');
+    const commReset = document.getElementById('btnBorrar');
+    const commMultip = document.getElementById('btnMul');
+    const commDividir = document.getElementById('btnDiv');
+    const commSumar = document.getElementById('btnMas');
+    const commRestar = document.getElementById('btnMenos');    
 
     num1.onclik = apretarNumero(1);
     num2.onclik = apretarNumero(2);
@@ -82,13 +99,66 @@ function calculadora(){
     num9.onclik = apretarNumero(9);
     num0.onclik = apretarNumero(0);
     numDot.onclik = apretarNumero(',');
-    commEq.onclik = calcular();
+    commEq.onclik = calcular(operador);
+    commback = atras();
+    commReset = borrar();
+    commMultip = multiplicar();
+    commDividir = dividir();
+    commSumar = sumar();
+    commRestar = restar();
 
 }
 function borrar(){
-    document.getElementById('pantalla').value = 0;
+    operando1 = 0;
+    calculado = false;
+    PANTALLA.value = 0;
 }
-function calcular(){
-    if(calculado)
-        document.getElementById('pantalla').value = resultado;
+
+function atras(){
+
+    if(PANTALLA.value.length>0){
+    PANTALLA.value = String(PANTALLA.value).substring(0,PANTALLA.value.length-1)
+    }else{
+        PANTALLA.value = 0;
+    }
+}
+function calcular(operador){
+    switch(operador){
+        case '+':
+            PANTALLA.value = operando1 + Number(PANTALLA.value);
+           
+            break;
+        case '-':
+            PANTALLA.value = operando1 - Number(PANTALLA.value);
+            break; 
+        case '*':
+            PANTALLA.value = operando1 * Number(PANTALLA.value);
+            break;
+        case '/':
+            PANTALLA.value = operando1 / Number(PANTALLA.value);
+            break; 
+    }
+    calculado = true;
+    
+}
+
+function sumar(){
+    operando1 += Number(PANTALLA.value);
+    operador = '+';
+    PANTALLA.value = 0;
+}
+function multiplicar(){
+    operando1 *= Number(PANTALLA.value);
+    operador = '*';
+    PANTALLA.value = 0;
+}
+function restar(){
+    operando1 = operando1 - Number(PANTALLA.value);
+    operador = '-';
+    PANTALLA.value = 0;
+}
+function dividir(){
+    operando1 = operando1 / Number(PANTALLA.value);
+    operador = '/';
+    PANTALLA.value = 0;
 }
