@@ -221,21 +221,34 @@ dos elementos numéricos */
         return aux;
     }
     function buscarBooleano() {
-        let primer = 0;
-        let segundo;
-        for (var i = 0; i < valores.length; i++) {
+        let primer = '';
+        let dato2 = '';
+        for (let i = 0; i < valores.length; i++) {
             if (typeof valores[i] === 'boolean') {
-                if (primer === 0) {
+                if (primer === '') {
                     primer = valores[i];
                     
-                }else
-
-                segundo = valores[i];
-
-
+                }else{
+                    dato2 = valores[i];
+                }
             }
-            return [primer || segundo, primer && segundo];
         }
+        return [primer || dato2, primer && dato2];
+/*
+        let dato = "";
+    let dato2 = "";
+
+    for (let i = 0; i < valores.length; i++) {
+        if(typeof valores[i] === "boolean"){
+            if(dato === ""){
+                dato = valores[i];
+            }else{
+                dato2 = valores[i];
+            }
+        }
+        
+    }
+    return [dato || dato2, dato && dato2];*/
     }
     console.log(`el valor de texto más largo es: ${determinarTextoMayor()}`);
     console.log(buscarBooleano());
