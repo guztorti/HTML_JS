@@ -9,7 +9,7 @@ function cargar() {
     //document.getElementById('tbx3').setAttribute('value', edad);
     calculadora;
 }
-function esMayorDeEdad() {
+/* Ejercicio 3*/ function esMayorDeEdad() {
 
     if (entra) {
         if (Number(document.getElementById('tbx3').getAttribute('value')) >= 18) {
@@ -23,7 +23,7 @@ function esMayorDeEdad() {
         entra = false;
     }
 }
-function sOn() {
+/* Ejercicio 4 */ function sOn() {
 
     var caracter = String(document.getElementById('txt4').value);
     try {
@@ -45,6 +45,7 @@ function sOn() {
     }
 
 }
+/*Ejercicio 5*/{
 function apretarNumero(numero){
     if (PANTALLA.value.length === 12){
         return;
@@ -52,16 +53,16 @@ function apretarNumero(numero){
     if(calculado){
         PANTALLA.value = numero;
         calculado = false;
-    }
+    }else if (PANTALLA.value == 0){
+        PANTALLA.value = numero;
+        }
+        else{
+        PANTALLA.value +=numero;
+        }
     if (numero === ','){
         document.getElementById('btnPunto').disabled = true;
     }
-    if (PANTALLA.value == 0){
-    PANTALLA.value = numero;
-    }
-    else{
-    PANTALLA.value +=numero;
-    }
+    evaluarEsPar();
 }
 
 let operando1 = 0;
@@ -98,7 +99,7 @@ function calculadora(){
     num8.onclik = apretarNumero(8);
     num9.onclik = apretarNumero(9);
     num0.onclik = apretarNumero(0);
-    numDot.onclik = apretarNumero(',');
+    numDot.onclik = apretarNumero();
     commEq.onclik = calcular(operador);
     commback = atras();
     commReset = borrar();
@@ -121,8 +122,9 @@ function atras(){
     }else{
         PANTALLA.value = 0;
     }
+    evaluarEsPar();
 }
-function calcular(operador){
+function calcular(){
     switch(operador){
         case '+':
             PANTALLA.value = operando1 + Number(PANTALLA.value);
@@ -139,26 +141,60 @@ function calcular(operador){
             break; 
     }
     calculado = true;
-    
+    evaluarEsPar();
 }
 
 function sumar(){
     operando1 += Number(PANTALLA.value);
     operador = '+';
-    PANTALLA.value = 0;
+    PANTALLA.value = operando1;
+    calculado = true;
+    evaluarEsPar();
 }
 function multiplicar(){
+    if(operando1 == 0){operando1 = 1}
     operando1 *= Number(PANTALLA.value);
     operador = '*';
-    PANTALLA.value = 0;
+    PANTALLA.value = operando1;
+    calculado = true;
+    evaluarEsPar();
 }
 function restar(){
-    operando1 = operando1 - Number(PANTALLA.value);
+    if(calculado){
+        operando1 = Number(PANTALLA.value)*-1;
+    }else {
+    operando1 = Number(PANTALLA.value);
     operador = '-';
-    PANTALLA.value = 0;
+    PANTALLA.value = operando1;
+    calculado = true;
+    }
+    evaluarEsPar()
 }
 function dividir(){
-    operando1 = operando1 / Number(PANTALLA.value);
+    operando1 = Number(PANTALLA.value);
     operador = '/';
-    PANTALLA.value = 0;
+    PANTALLA.value = operando1;
+    calculado = true;
+    evaluarEsPar();
+} 
+}
+/* Ejercicio 6 */{
+    function evaluarEsPar(){
+        if(PANTALLA.value%2===0){
+            document.querySelector('#esPar').textContent = "El número en la pantalla es PAR";
+        }else {
+            document.querySelector('#esPar').textContent = "El número en la pantalla es IMPAR";
+        }
+    }
+
+
+/* Ejercicio 10 */ {
+//let palabra = prompt("Ingrese palabra a invertir");
+//let invertida = (palabra)=> console.log(palabra.split('').reverse().join(''));
+//invertida(palabra);
+}
+}
+/* Ejercicio 12 */{
+    let tipoDeDato = (argumento) => console.log(typeof argumento);
+    tipoDeDato(new Set([2,2,3,3,4,4,4]))
 }
